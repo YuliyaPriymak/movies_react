@@ -1,0 +1,19 @@
+.btn-menu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .change-menu {
+    width: 150px;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    & > li {
+      &:hover {
+        cursor: pointer;
+        background-color: #007bff;
+      }
+    }
+  }
+}

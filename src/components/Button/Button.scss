@@ -1,0 +1,31 @@
+.my-btn {
+  height: 38px;
+  margin-right: 10px;
+  &.btn {
+    box-shadow: unset;
+
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &.btn-primary {
+    &.focus,
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+
+  &.custom-select {
+    border-color: #007bff;
+    color: #007bff;
+  }
+
+  &.btn-styled {
+    background: lightpink !important;
+  }
+}

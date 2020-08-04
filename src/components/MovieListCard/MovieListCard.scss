@@ -1,0 +1,23 @@
+.list-card {
+  display: flex;
+  padding: 0 10px;
+  width: 20%;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 20px;
+  .genre { color: darkcyan }
+  h1 {
+    font-size: 20px;
+    color: #008B8B;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  p {
+    margin-bottom: 2px;
+  }
+  .img-poster {
+    img {
+      width: 100%;
+    }
+  }
+}
