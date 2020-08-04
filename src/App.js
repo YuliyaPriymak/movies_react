@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import {MoviesPage} from "./containers/MoviesPage";
+import {Header} from "./components/Header/Header";
+import {Provider} from "react-redux";
+import {store} from "./store";
+import {MovieDetailsPage} from "./containers/MovieDetailsPage";
+import NotFound from "./containers/NotFound/NotFound";
 import './App.css';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Provider store={store}>
+      <Router>
+        <Header/>
+        <Switch>
+          <Route exact path='/'>
+            <Redirect to='/movies' />
+          </Route>
+          <Route exact path='/movies' component={MoviesPage}/>
 
-export default App;
+          <Route path="/movies/:id" render={(props) => <MovieDetailsPage {...props} />} />
+
+          <Route path='/not-found' component={NotFound} />
+          <Redirect from='*' to='/not-found' />
+
+        </Switch>
+      </Router>
+    </Provider>
+
+  )
+};
+
+
